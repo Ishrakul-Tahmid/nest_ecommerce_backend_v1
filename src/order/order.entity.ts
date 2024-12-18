@@ -7,24 +7,24 @@ import {
     ManyToOne,
     JoinColumn
   } from 'typeorm';
-  import { User } from '../user/users.entity'; // Adjust this import based on your actual User entity path
+  import { User } from '../user/users.entity'; 
   
   @Entity('order')
   export class Order extends BaseEntity {
     @PrimaryGeneratedColumn()
-    orderId: number; // Primary key for the order
+    orderId: number; 
   
-    @ManyToOne(() => User, { nullable: false })  // Establish the relationship with the User entity
-    @JoinColumn({ name: 'user_id' })  // Foreign key column for user
-    user: User;  // Reference to User entity (you can access user properties like user.name, user.email, etc.)
+    @ManyToOne(() => User, { nullable: false })  
+    @JoinColumn({ name: 'user_id' })  
+    user: User;  
   
     @CreateDateColumn()
-    orderDate: Date;  // Automatically set to the current date/time when the order is created
+    orderDate: Date; 
   
     @Column('float')
-    totalAmount: number;  // Total amount for the order
+    totalAmount: number;  
   
     @Column()
-    orderStatus: string;  // Order status (Pending, Shipped, Delivered, Cancelled)
+    orderStatus: string;  
   }
   

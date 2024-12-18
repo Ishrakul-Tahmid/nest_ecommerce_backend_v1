@@ -26,7 +26,6 @@ export class OrderController {
       return this.orderService.create(totalAmount, orderStatus, userId);
   }
 
-  // Find an order by ID
   @Get('/:orderId')
   async findOrder(@Param('orderId') orderId: number) {
     const order = await this.orderService.findOne(orderId);
@@ -36,19 +35,16 @@ export class OrderController {
     return order;
   }
 
-  // Get all orders
   @Get()
   findAllOrders() {
     return this.orderService.find();
   }
 
-  // Remove an order
   @Delete('/delete/:orderId')
   removeOrder(@Param('orderId') orderId: number) {
     return this.orderService.remove(orderId);
   }
 
-  // Update an order
   @Patch('/update/:orderId')
   updateOrder(@Param('orderId') orderId: number, @Body() body: UpdateOrderDto) {
     return this.orderService.update(orderId, body);

@@ -10,13 +10,13 @@ import {
   @Entity('categories')
   export class Category extends BaseEntity {
     @PrimaryGeneratedColumn()
-    category_id: number; // Primary Key
+    category_id: number; 
   
     @Column({ unique: true })
-    name: string; // Required, Unique
+    name: string; 
   
     @ManyToOne(() => Category, (category) => category.category_id, { nullable: true })
     @JoinColumn({ name: 'parentCategory_id' })
-    parentCategory_id: Category | null; // Foreign Key referencing category_id
+    parentCategory_id: Category | null; 
   }
   

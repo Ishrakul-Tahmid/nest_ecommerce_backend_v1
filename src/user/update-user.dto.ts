@@ -1,23 +1,42 @@
-import { IsEmail, IsString, IsOptional } from 'class-validator';
-
+import { 
+  IsEmail, 
+  IsString, 
+  IsNotEmpty, 
+  MinLength, 
+  Matches, 
+  IsOptional 
+} from 'class-validator';
+ 
 export class UpdateUserDto {
   @IsOptional()
   @IsString()
-  name: string; // User's name
-
+  @IsNotEmpty({ message: 'Name must not be empty' })
+  @MinLength(1, { message: 'Name must not be an empty string' })
+  name?: string;
+ 
   @IsOptional()
   @IsString()
-  username: string; // User's username
-
+  @IsNotEmpty({ message: 'Username must not be empty' })
+  @MinLength(1, { message: 'Username must not be an empty string' })
+  username?: string;
+ 
   @IsOptional()
-  @IsEmail()
-  email: string; // User's email address
-
+  @IsEmail({}, { message: 'Email must be a valid email address' })
+  @IsNotEmpty({ message: 'Email must not be empty' })
+  email?: string;
+ 
   @IsOptional()
   @IsString()
-  password: string; // User's password
-
+  @IsNotEmpty({ message: 'Password must not be empty' })
+  @MinLength(6, { message: 'Password must be at least 6 characters long' })
+  @Matches(/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/, { 
+    message: 'Password must include at least 1 uppercase and 1 lowercase letter' 
+  })
+  password?: string;
+ 
   @IsOptional()
   @IsString()
-  role: string; // User's role (updated from "rule")
+  @IsNotEmpty({ message: 'Role must not be empty' })
+  @MinLength(1, { message: 'Role must not be an empty string' })
+  role?: string;
 }

@@ -15,7 +15,6 @@ import { ProductService } from './product.service';
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
-  // Create a new product
   @Post()
   async createProduct(
     @Body('name') name: string,
@@ -39,7 +38,6 @@ export class ProductController {
     );
   }
 
-  // Find a product by ID
   @Get('/:product_id')
   async findProduct(@Param('product_id') product_id: number) {
     const product = await this.productService.findOne(product_id);
@@ -49,19 +47,16 @@ export class ProductController {
     return product;
   }
 
-  // Get all products
   @Get()
   findAllProducts() {
     return this.productService.find();
   }
 
-  // Delete a product
   @Delete('/delete/:product_id')
   async removeProduct(@Param('product_id') product_id: number) {
     return this.productService.remove(product_id);
   }
 
-  // Update a product
   @Patch('/update/:product_id')
   async updateProduct(
     @Param('product_id') product_id: number,

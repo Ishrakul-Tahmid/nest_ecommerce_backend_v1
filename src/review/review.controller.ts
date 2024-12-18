@@ -18,7 +18,7 @@ export class ReviewController {
   @Post()
   async createReview(
       @Body('productId') productId: number,
-      @Body('userId') userId: number,   // Added userId here
+      @Body('userId') userId: number,   
       @Body('rating') rating: number,
       @Body('comment') comment: string
   ) {

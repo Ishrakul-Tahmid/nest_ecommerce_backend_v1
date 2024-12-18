@@ -6,39 +6,39 @@ import {
     ManyToOne,
     JoinColumn,
   } from 'typeorm';
-  import { Category } from '../category/category.entity'; // Assuming Category entity exists
+  import { Category } from '../category/category.entity'; 
   
   @Entity('product')
   export class Product extends BaseEntity {
     @PrimaryGeneratedColumn()
-    product_id: number; // Primary key for product
+    product_id: number; 
   
     @Column()
-    name: string; // Required field for product name
+    name: string; 
   
     @Column({ nullable: true })
-    short_description: string; // Optional short description
+    short_description: string; 
   
     @Column({ nullable: true })
-    description: string; // Optional detailed description
+    description: string; 
   
     @Column('float')
-    price: number; // Required field for price
+    price: number; 
   
     @Column({ nullable: true })
-    image_url: string; // Optional image URL
+    image_url: string; 
   
     @Column()
-    stock_quantity: number; // Integer field for stock quantity
+    stock_quantity: number; 
   
     @ManyToOne(() => Category, (category) => category.category_id, {
       nullable: true,
-      onDelete: 'SET NULL', // If category is deleted, set the category_id to null
+      onDelete: 'SET NULL', 
     })
     @JoinColumn({ name: 'category_id' })
-    category: Category; // Foreign key to the Category table
+    category: Category; 
   
     @Column()
-    status: string; // Status of the product (e.g., "active", "inactive")
+    status: string; 
   }
   

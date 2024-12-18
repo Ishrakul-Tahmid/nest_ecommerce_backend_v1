@@ -1,15 +1,18 @@
-import { IsOptional, IsNumber, IsDate } from 'class-validator';
+import { IsOptional, IsNumber, IsDate, IsNotEmpty } from 'class-validator';
 
 export class UpdateCartDto {
   @IsOptional()
-  @IsNumber()
-  cartId: number; // Optional: Cart ID for updating purposes
+  @IsNumber({}, { message: 'Cart ID must be a number' })
+  @IsNotEmpty({ message: 'Cart ID cannot be empty' })
+  cartId: number; 
 
   @IsOptional()
-  @IsNumber()
-  buyerId: number; // Optional: Buyer/User ID
+  @IsNumber({}, { message: 'Buyer ID must be a number' })
+  @IsNotEmpty({ message: 'Buyer ID cannot be empty' })
+  buyerId: number; 
 
   @IsOptional()
-  @IsDate()
-  createDate: Date; // Optional: Creation date
+  @IsDate({ message: 'Create date must be a valid date' })
+  @IsNotEmpty({ message: 'Create date cannot be empty' })
+  createDate: Date; 
 }

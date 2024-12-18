@@ -15,7 +15,6 @@ import { CartService } from './cart.service';
 export class CartController {
   constructor(private readonly cartService: CartService) {}
 
-  // Create a new cart item
   @Post()
 async createCart(
   @Body('user_id') user_id: number,
@@ -26,7 +25,6 @@ async createCart(
 }
 
 
-  // Find a cart item by its ID
   @Get('/:cart_id')
   async findCart(@Param('cart_id') cart_id: number) {
     const cart = await this.cartService.findOne(cart_id);
@@ -36,13 +34,11 @@ async createCart(
     return cart;
   }
 
-  // Get all cart items
   @Get()
   findAllCarts() {
     return this.cartService.find();
   }
 
-  // Update a cart item
   @Patch('/update/:cart_id')
   async updateCart(
     @Param('cart_id') cart_id: number,
@@ -51,7 +47,6 @@ async createCart(
     return this.cartService.update(cart_id, body);
   }
 
-  // Remove a cart item
   @Delete('/delete/:cart_id')
   async removeCart(@Param('cart_id') cart_id: number) {
     return this.cartService.remove(cart_id);

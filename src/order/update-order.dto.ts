@@ -1,16 +1,25 @@
-import { IsOptional } from 'class-validator';
+import { IsOptional, IsNotEmpty, IsNumber, IsString, IsDate } from 'class-validator';
 
 export class UpdateOrderDto {
+  @IsOptional()
+  @IsNumber()
   orderId: number;
 
+  @IsOptional()
+  @IsNumber()
   buyerId: number;
 
-  orderDate:Date;
+  @IsOptional()
+  @IsDate()
+  orderDate: Date;
 
   @IsOptional()
-  totalAmount:number; 
+  @IsNumber({}, { message: 'Total amount must be a valid number' })
+  @IsNotEmpty({ message: 'Total amount cannot be empty' })
+  totalAmount: number;
 
   @IsOptional()
+  @IsString({ message: 'Order status must be a string' })
+  @IsNotEmpty({ message: 'Order status cannot be empty' })
   orderStatus: string;
-
 }

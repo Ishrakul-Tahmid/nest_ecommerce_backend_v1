@@ -1,15 +1,18 @@
-import { IsString, IsOptional, IsInt } from 'class-validator';
+import { IsString, IsOptional, IsInt, IsNotEmpty } from 'class-validator';
 
 export class UpdateCategoryDto {
   @IsOptional()
-  @IsInt()
-  category_id?: number; // Optional category_id to update
+  @IsInt({ message: 'Category ID must be a valid integer' })
+  @IsNotEmpty({ message: 'Category ID cannot be empty' })
+  category_id?: number; 
 
   @IsOptional()
-  @IsString()
-  name?: string; // Optional name to update
+  @IsString({ message: 'Name must be a string' })
+  @IsNotEmpty({ message: 'Name cannot be empty' })
+  name?: string; 
 
   @IsOptional()
-  @IsInt()
-  parentCategory_id?: number | null; // Optional parentCategory_id to update (nullable)
+  @IsInt({ message: 'Parent Category ID must be a valid integer' })
+  @IsNotEmpty({ message: 'Parent Category ID cannot be empty' })
+  parentCategory_id?: number | null;
 }

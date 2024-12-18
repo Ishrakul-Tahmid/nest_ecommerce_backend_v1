@@ -7,20 +7,20 @@ import {
     ManyToOne,
     JoinColumn,
 } from 'typeorm';
-import { User } from '../user/users.entity';  // Reference to buyer (User entity)
-import { Product } from '../product/product.entity';  // Reference to Product entity
+import { User } from '../user/users.entity';  
+import { Product } from '../product/product.entity';  
 
 @Entity('review')
 export class Review extends BaseEntity {
     @PrimaryGeneratedColumn()
-    reviewId: number;  // Primary key for Review
+    reviewId: number;  
 
     @ManyToOne(() => Product, { nullable: false })
-    @JoinColumn({ name: 'product_id' })  // Foreign key for Product
+    @JoinColumn({ name: 'product_id' }) 
     product: Product;
 
     @ManyToOne(() => User, { nullable: false })
-    @JoinColumn({ name: 'user_id' })  // Foreign key for User (Buyer)
+    @JoinColumn({ name: 'user_id' }) 
     user: User;
 
     @Column('float')

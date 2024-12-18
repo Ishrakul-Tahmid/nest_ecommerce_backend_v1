@@ -15,11 +15,11 @@ import {
     cart_id: number;
   
     @ManyToOne(() => User, { nullable: false })
-    @JoinColumn({ name: 'user_id' }) // Foreign key referencing Users table
+    @JoinColumn({ name: 'user_id' }) 
     user: User;
   
     @ManyToOne(() => Product, { nullable: false })
-    @JoinColumn({ name: 'product_id' }) // Foreign key referencing Products table
+    @JoinColumn({ name: 'product_id' }) 
     product: Product;
   
     @Column({ type: 'int', nullable: false })

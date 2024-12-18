@@ -10,7 +10,6 @@ export class ProductService {
     @InjectRepository(Product) private readonly repo: Repository<Product>,
   ) {}
 
-  // Create a new product
   create(
     name: string,
     short_description: string | null,
@@ -27,7 +26,7 @@ export class ProductService {
       description,
       price,
       stock_quantity,
-      category: category_id ? { category_id } : null, // Handle category relation
+      category: category_id ? { category_id } : null, 
       image_url,
       status,
     });
@@ -35,25 +34,22 @@ export class ProductService {
     return this.repo.save(product);
   }
 
-  // Find a product by its ID
   findOne(product_id: number) {
     if (!product_id) {
       return null;
     }
     return this.repo.findOne({
       where: { product_id },
-      relations: ['category'], // Include related category data
+      relations: ['category'], 
     });
   }
 
-  // Get all products
   find() {
     return this.repo.find({
-      relations: ['category'], // Include related category data
+      relations: ['category'], 
     });
   }
 
-  // Update an existing product
   async update(product_id: number, body: Partial<UpdateProductDto>) {
     const product = await this.findOne(product_id);
     if (!product) {
@@ -63,7 +59,6 @@ export class ProductService {
     return this.repo.save(product);
   }
 
-  // Delete a product
   async remove(product_id: number) {
     const product = await this.findOne(product_id);
     if (!product) {

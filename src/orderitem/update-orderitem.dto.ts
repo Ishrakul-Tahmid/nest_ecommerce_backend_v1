@@ -1,9 +1,13 @@
-import { IsOptional } from 'class-validator';
+import { IsOptional, IsNotEmpty, IsNumber } from 'class-validator';
 
 export class UpdateOrderItemDto {
   @IsOptional()
+  @IsNumber({}, { message: 'Quantity must be a valid number' })
+  @IsNotEmpty({ message: 'Quantity cannot be empty' })
   quantity: number;
 
   @IsOptional()
-   subTotal: number;
+  @IsNumber({}, { message: 'SubTotal must be a valid number' })
+  @IsNotEmpty({ message: 'SubTotal cannot be empty' })
+  subTotal: number;
 }

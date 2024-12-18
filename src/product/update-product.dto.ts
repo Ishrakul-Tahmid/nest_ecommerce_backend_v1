@@ -1,35 +1,43 @@
-import { IsString, IsNumber, IsOptional } from 'class-validator';
+import { IsString, IsNumber, IsOptional, IsNotEmpty } from 'class-validator';
 
 export class UpdateProductDto {
   @IsOptional()
-  @IsString()
+  @IsString({ message: 'Name must be a string' })
+  @IsNotEmpty({ message: 'Name cannot be empty' })
   name: string;
 
   @IsOptional()
-  @IsString()
+  @IsString({ message: 'Short description must be a string' })
+  @IsNotEmpty({ message: 'Short description cannot be empty' })
   short_description: string;
 
   @IsOptional()
-  @IsString()
+  @IsString({ message: 'Description must be a string' })
+  @IsNotEmpty({ message: 'Description cannot be empty' })
   description: string;
 
   @IsOptional()
-  @IsNumber()
+  @IsNumber({}, { message: 'Price must be a number' })
+  @IsNotEmpty({ message: 'Price cannot be empty' })
   price: number;
 
   @IsOptional()
-  @IsNumber()
+  @IsNumber({}, { message: 'Stock quantity must be a number' })
+  @IsNotEmpty({ message: 'Stock quantity cannot be empty' })
   stock_quantity: number;
 
   @IsOptional()
-  @IsNumber()
+  @IsNumber({}, { message: 'Category ID must be a number' })
+  @IsNotEmpty({ message: 'Category ID cannot be empty' })
   category_id: number;
 
   @IsOptional()
-  @IsString()
+  @IsString({ message: 'Image URL must be a string' })
+  @IsNotEmpty({ message: 'Image URL cannot be empty' })
   image_url: string;
 
   @IsOptional()
-  @IsString()
+  @IsString({ message: 'Status must be a string' })
+  @IsNotEmpty({ message: 'Status cannot be empty' })
   status: string;
 }
