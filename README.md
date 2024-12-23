@@ -1,99 +1,92 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+  <h1>E-Commerce (Kinbo-naki?) Backend</h1>
+  <h1>Project Setup</h1>
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+  <p>To get started with this project, follow the steps below:</p>
 
-## Description
+  <h2>Install Dependencies</h2>
+  <pre><code>npm install</code></pre>
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+  <h2>Compile and Run the Project</h2>
 
-## Project setup
+  <h3>Development Mode</h3>
+  <pre><code>npm run start</code></pre>
 
-```bash
-$ npm install
-```
+  <h3>Watch Mode</h3>
+  <pre><code>npm run start:dev</code></pre>
 
-## Compile and run the project
+  <h3>Production Mode</h3>
+  <pre><code>npm run start:prod</code></pre>
 
-```bash
-# development
-$ npm run start
+  <h2>Run Tests</h2>
 
-# watch mode
-$ npm run start:dev
+  <h3>Unit Tests</h3>
+  <pre><code>npm run test</code></pre>
 
-# production mode
-$ npm run start:prod
-```
+  <h3>End-to-End (E2E) Tests</h3>
+  <pre><code>npm run test:e2e</code></pre>
 
-## Run tests
+  <h3>Test Coverage</h3>
+  <pre><code>npm run test:cov</code></pre>
 
-```bash
-# unit tests
-$ npm run test
+  <hr>
 
-# e2e tests
-$ npm run test:e2e
+  <h1>Deployment</h1>
 
-# test coverage
-$ npm run test:cov
-```
+  <h2>Preparing for Production</h2>
+  <p>To deploy your NestJS application for production, follow the guidelines in the <a href="https://docs.nestjs.com/deployment">NestJS Deployment Documentation</a>.</p>
 
-## Deployment
+  <h2>Deploying with Mau</h2>
+  <p>Mau is the official cloud-based platform for deploying NestJS applications on AWS. It simplifies the deployment process, enabling you to deploy your application quickly and efficiently.</p>
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+  <h3>Install Mau</h3>
+  <pre><code>npm install -g mau</code></pre>
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+  <h3>Deploy with Mau</h3>
+  <pre><code>mau deploy</code></pre>
 
-```bash
-$ npm install -g mau
-$ mau deploy
-```
+  <p>For more information, visit <a href="https://mau.nestjs.com">Mau</a>.</p>
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+  <hr>
 
-## Resources
+  <h1>Resolving Linebreak Style Issues (LF vs. CRLF)</h1>
 
-Check out a few resources that may come in handy when working with NestJS:
+  <p>If you encounter the error <code>Expected linebreaks to be 'LF' but found 'CRLF'</code>, follow these steps:</p>
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+  <h2>Step 1: Update ESLint Configuration</h2>
+  <p>Ensure your ESLint configuration enforces <code>LF</code> line endings.</p>
+  <pre><code>rules: {
+  'linebreak-style': ['error', 'unix'], // Enforces LF line endings
+},</code></pre>
 
-## Support
+  <h2>Step 2: Update Prettier Configuration</h2>
+  <p>Set <code>endOfLine</code> to <code>lf</code> in your Prettier configuration file (<code>.prettierrc</code>):</p>
+  <pre><code>{
+  "endOfLine": "lf"
+}</code></pre>
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+  <h2>Step 3: Install Prettier and ESLint Integration</h2>
+  <p>Install the necessary plugins to integrate Prettier and ESLint:</p>
+  <pre><code>npm install --save-dev eslint-config-prettier eslint-plugin-prettier</code></pre>
 
-## Stay in touch
+  <h2>Step 4: Reformat Files with Prettier</h2>
+  <p>Run Prettier to reformat all files and apply the correct line endings:</p>
+  <pre><code>npx prettier --write .</code></pre>
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+  <hr>
 
-## License
+  <p>Following these steps ensures consistent line endings and resolves any linebreak style issues.</p>
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+  <h1>Do Add DataBase To Your PG-ADMIN4 Follow below command</h1>
+  <pre><code>npm run migration:generate -- DB/migrations/addTBL_orders_3_table_updated</code></pre>
+  <p>After that write this code</p>
+   <pre><code>npm run migration:run </code></pre>
+</body>
+</html>

@@ -1,45 +1,31 @@
-import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './user/users.entity';
-import { Product } from './product/product.entity';
-import { Category } from './category/category.entity';
-import { Order } from './order/order.entity';
-import { OrderItem } from './orderitem/orderitem.entity';
-import { Review } from './review/review.entity';
-import { Delivery } from './delivery/delivery.entity';
-import { Cart } from './cart/cart.entity';
-import { CartModule } from './cart/cart.module';
-import { DeliveryModule } from './delivery/delivery.module';
-import { ReviewModule } from './review/review.module';
-import { OrderItemModule } from './orderitem/orderitem.module';
-import { OrderModule } from './order/order.module';
-import { CategoryModule } from './category/category.module';
-import { ProductModule } from './product/product.module';
-import { UsersModule } from './user/users.module';
+import { MiddlewareConsumer, Module, RequestMethod } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { dataSourceOptions } from 'DB/data-source';
+import { UsersModule } from './users/users.module';
+import { LoggerMiddleware } from './utility/middleware/current_user_middleware';
+import { CategoriesModule } from './categories/categories.module';
+import { ProductsModule } from './products/products.module';
+import { ReivewsModule } from './reivews/reivews.module';
+import { OrdersModule } from './orders/orders.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot({
-    type: 'postgres',
-    host: 'localhost',
-    port: 5432,
-    username: 'postgres',
-    password: 'admin',
-    database: 'practice',
-    entities: [User, Product, Category, Order, OrderItem, Review, Delivery, Cart],
-    synchronize: true,
-  }),
+  imports: [
+    TypeOrmModule.forRoot(dataSourceOptions),
     UsersModule,
-    ProductModule,
-    CategoryModule,
-    OrderModule,
-    OrderItemModule,
-    ReviewModule,
-    DeliveryModule,
-    CartModule
-],
+    CategoriesModule,
+    ProductsModule,
+    ReivewsModule,
+    OrdersModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(LoggerMiddleware)
+      .forRoutes({ path: '*', method: RequestMethod.ALL });
+  }
+}
